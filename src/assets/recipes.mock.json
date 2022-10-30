@@ -1,0 +1,29 @@
+[
+    {    "id":1,
+        "name":"Chorba Algérienne au polet et vermicelle",
+        "description":"Chorba algérienne recette traditionnelle de chorba vermicelle au poulet une recette facile et rapide ",
+        "imagePath":"https://lesucresale-doumsouhaib.com/wp-content/uploads/2021/04/chorba-vermicelle-au-poulet-1024x679.jpg",
+        
+        "ingredients": 
+        [
+            { "name":" poivrons rouges", "amount":"2"},
+            { "name":" poivron vert", "amount":"1"},
+            { "name":"tomates", "amount":"2"},
+            { "name":" œufs", "amount":"2"},
+            { "name":"gousses d'ail", "amount":"2"}
+        ]
+    },
+    {   "id":2,
+        "name":"Chakchouka algérienne",
+        "description":"La chakchouka algérienne est une délicieuse entrée aux légumes que l’on sert chaude ou froide et qui  ",
+        "imagePath":"https://img.cuisineaz.com/660x660/2016/07/07/i39789-chakchouka-algerienne.webp",
+
+         "ingredients":  [
+            { "name":" poivrons rouges", "amount":"2"},
+            { "name":" poivron vert", "amount":"1"},
+            { "name":"tomates", "amount":"2"},
+            { "name":" œufs", "amount":"2"},
+            { "name":"gousses d'ail", "amount":"2"}
+        ]
+    }
+]

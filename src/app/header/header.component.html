@@ -1,0 +1,35 @@
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <a class="navbar-brand" style="cursor: pointer;" routerLink="/">Recipe Book</a>
+      </div>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li routerLinkActive="active" *ngIf="isAuthenticated"> 
+            <a style="cursor: pointer" routerLink="/recipes">Recipes</a>
+          </li>
+          <li routerLinkActive="active"> 
+            <a style="cursor: pointer" routerLink="/auth" *ngIf="!isAuthenticated">Authenticate</a>
+          </li>
+          <li routerLinkActive="active"> 
+            <a style="cursor: pointer" routerLink="/shopping-list">Shopping List</a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" >
+          <li *ngIf="isAuthenticated">
+            <a style="cursor: pointer" (click)="onLogOut()">Logout</a>
+          </li>
+          <li class="dropdown" appDropdown *ngIf="isAuthenticated">
+              <a style="cursor: pointer" class="dropdown-toggle" role="button">Manage <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a style="cursor: pointer" (click)="onSaveData()">Save Data</a></li>
+                <li><a style="cursor: pointer" (click)="onFetchData()">Fetch Data</a></li>
+              </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
