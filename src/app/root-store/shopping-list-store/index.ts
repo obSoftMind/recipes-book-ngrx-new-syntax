@@ -1,0 +1,1 @@
+export {ShoppingListState,shoppingListFeatureKey} from './reducers/shopping-list.reducer';

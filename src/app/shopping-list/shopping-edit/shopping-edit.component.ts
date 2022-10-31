@@ -3,9 +3,8 @@ import { NgForm } from '@angular/forms';
 import { Subscription } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { Ingredient } from 'src/app/shared/Ingredient.model';
-import * as ShoppingListActions from '../store/shopping-list.actions';
-import * as fromShoppingList from '../store/shopping-list.reducer';
-
+import * as fromShoppingList from '../../root-store/index';
+import {AddIngredient, DeleteIngredient, StopEdit, UpdateIngredient} from '../../root-store/shopping-list-store/actions/shopping-list.actions';
 @Component({
   selector: 'app-shopping-edit',
   templateUrl: './shopping-edit.component.html',
@@ -37,34 +36,31 @@ export class ShoppingEditComponent implements OnInit, OnDestroy{
   }
   onSubmit(form: NgForm){
     const value = form.value;
-    const newIngredient = new Ingredient(value.name, value.amount);
+    const ingredient = new Ingredient(value.name, value.amount);
     if(this.editMode){
-      //this.shoppingListService.updateIngredient(newIngredient, this.editedIngredientIndex)
-      this.store.dispatch(new  ShoppingListActions.UpdateIngredient(newIngredient));
+      this.store.dispatch( UpdateIngredient({ingredient}));
     }else {
-      // this.shoppingListService.addIngredient(newIngredient);
-      this.store.dispatch(new ShoppingListActions.AddIngredient(newIngredient))
+      this.store.dispatch(AddIngredient({ingredient}));
     }
     this.editMode = false;
    this.slForm.reset();
   }
 
   onDeleteIngredient(){
-    // this.shoppingListService.deleteIngredient(this.editedIngredientIndex);
-    this.store.dispatch(new  ShoppingListActions.DeleteIngredient())
+    this.store.dispatch(DeleteIngredient());
     this.onClearItem();
   }
 
   onClearItem(){
     this.slForm.reset();
     this.editMode = false;
-    this.store.dispatch(new ShoppingListActions.StopEdit());
+    this.store.dispatch(StopEdit());
   }
 
   ngOnDestroy(){
     if(this.subscription !== null) {
       this.subscription.unsubscribe();
-      this.store.dispatch(new ShoppingListActions.StopEdit());
+      this.store.dispatch(StopEdit());
     }
   }
 }
