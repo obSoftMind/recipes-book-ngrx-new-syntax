@@ -11,8 +11,4 @@ import { ShoppingListStoreModule } from "./shopping-list-store/shopping-list-sto
   ]
 })
 export class RootStoreModule {
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 }
